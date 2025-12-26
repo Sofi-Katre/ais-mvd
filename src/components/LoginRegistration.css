@@ -1,0 +1,199 @@
+.login-reg-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr; 
+    background: #38343E;
+    min-height: 83vh;
+    margin: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    margin-top: 1vw;
+    margin-left: 1vw;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Левая панель (Слайдер) */
+.slider-panel {
+    display: flex;
+    height: 38vw; 
+    border-radius: 15px; 
+    margin: 20px; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 40px;
+    transition: background-color 0.5s ease;
+    position: relative;
+}
+
+.slide-content {
+    text-align: center;
+    max-width: 400px;
+}
+
+.slider-button {
+    background: white;
+    color: #1e3a8a;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.slide-indicators {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active-indicator {
+    background: white;
+}
+
+/* Правая панель (Форма) */
+.auth-panel {
+    background: #38343E; /* Темный фон панели */
+    padding: 80px 60px;
+    display: flex;
+    /* Убрал ширину 30vw, чтобы она адаптировалась под Grid */
+    flex-direction: column;
+    justify-content: center;
+    margin: auto; /* Центрирует панель внутри её Grid-ячейки */
+}
+
+.auth-panel h2 {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.auth-help-text {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #718096;
+}
+
+.auth-help-text a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Интервал между строками */
+}
+
+/* ********** НОВЫЕ СТИЛИ ДЛЯ ДВУХКОЛОНОЧНОГО МАКЕТА ********** */
+/* Стили для строки с двумя полями ввода (Фамилия, Имя) */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Делит строку на две равные колонки */
+    gap: 15px; /* Интервал между полями в строке */
+}
+
+/* Стили для строк с полем ввода и меткой (Отчество, Телефон) */
+.form-row-with-label {
+    display: grid;
+    grid-template-columns: 1fr auto; /* Поле ввода занимает доступное место, метка по ширине контента */
+    align-items: center; /* Выравнивает текст метки по центру поля ввода */
+    gap: 15px; 
+}
+
+.form-row-with-label label {
+    color: #718096; /* Цвет текста метки как на макете */
+    font-size: 0.8rem;
+}
+/* *************************************************************** */
+
+
+/* Общие стили для всех полей ввода (input) - Обновлено */
+.auth-form input {
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    /* Стили как на изображении: темный фон поля, белый текст */
+    background-color: #4A4453; 
+    color: #FFFFFF;
+}
+
+.auth-form input::placeholder {
+    color: #A0AEC0; /* Цвет плейсхолдера */
+}
+
+.auth-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: #718096;
+}
+
+.auth-checkbox-wrapper input {
+    margin-right: 10px;
+}
+
+.auth-button {
+    /* Градиент из изображения */
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    /* Делаем кнопку полной ширины и убираем автоматический margin */
+    width: 100%; 
+    margin: 0;
+}
+
+.auth-button:hover {
+    /* Градиент при наведении */
+    background: linear-gradient(to right, #324EBD, #FFFFFF); 
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 992px) {
+    .login-reg-wrapper {
+        grid-template-columns: 1fr; /* Одна колонка на мобильных */
+        margin: 0;
+        border-radius: 0;
+    }
+    .slider-panel {
+        min-height: 300px;
+    }
+    .back-button {
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .auth-panel {
+        width: auto; /* Позволяем панели использовать доступную ширину на мобильных */
+        padding: 40px 20px; /* Корректируем отступы для мобильных */
+    }
+}
